@@ -210,6 +210,37 @@ main {
   font-weight: lighter;
 }
 
+/* alignments */
+
+
+.form-table {
+  table-layout: fixed;
+}
+
+.form-table td {
+  vertical-align: top;
+}
+
+.td1 {
+  width: 38%;
+  padding-top: 10px;
+}
+
+input,
+textarea,
+select {
+  width: 340px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Keep checkbox/radio from becoming huge width */
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"] {
+  width: auto;
+}
+
 /* Footer */
 footer {
   margin-top: auto;
