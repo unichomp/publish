@@ -2,153 +2,123 @@
 Name: Raymundo Licon Castaneda
 Date created: Feb 25, 2026
 Date Last Updated: Feb 27, 2026
-Purpose: Homework 1 Clinic Form
+Purpose: Homework 1 JS
 
-Notes
-- Displays today's date
-- Added live character counter for notes
-- Live pain level output for slider
-- match password
+This file is shared across ALL pages (Homework1.html, ThankYou.html, MentalHealth.html)
+adds functionalities to pages
 */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Pain slider (1–10)
-  const range = document.getElementById("range");
-  const rangeOut = document.getElementById("range-slider");
+  const byId = (id) => document.getElementById(id);
 
-  const updateRange = () => {
-    if (range && rangeOut) rangeOut.textContent = `Pain Level: ${range.value}/10`;
-  };
-  // Depression slider output (1–10)
-  const depression = document.getElementById("depression");
-  const depressionOut = document.getElementById("depression-slider");
+  // time/date
+  const todaySpan = byId("today");
+  const clockSpan = byId("clock");
 
-  const updateDepression = () => {
-    if (depression && depressionOut) {
-      depressionOut.textContent = `Depression Level: ${depression.value}/10`;
-    }
-  };
-
-  if (depression && depressionOut) {
-    updateDepression();
-    depression.addEventListener("input", updateDepression);
-  }
-  if (range && rangeOut) {
-    updateRange();
-    range.addEventListener("input", updateRange);
-  }
-
-  // Reset button: also refresh displayed slider values + notes counter
-  const form = document.querySelector("form");
-
-  if (form) {
-  form.addEventListener("reset", () => {
-    // Wait one tick so the browser finishes resetting the inputs first
-    setTimeout(() => {
-      if (typeof updateRange === "function") updateRange();
-      if (typeof updateStress === "function") updateStress();
-      if (typeof updateDepression === "function") updateDepression();
-      if (typeof updateCount === "function") updateCount();
-    }, 0);
-  });
-}
-
-  // Stress slider output (1–10)
-  const stress = document.getElementById("stress");
-  const stressOut = document.getElementById("stress-slider");
-
-  const updateStress = () => {
-  if (stress && stressOut) stressOut.textContent = `Stress Level: ${stress.value}/10`;
-  };
-
-  if (stress && stressOut) {
-  updateStress();
-  stress.addEventListener("input", updateStress);
-  }
-
-
-  // Notes character counter
-  const notes = document.getElementById("notes");
-  const desc = document.getElementById("description_text");
-
-  const updateCount = () => {
-  if (notes && desc) {
-    const remaining = 500 - notes.value.length;
-    desc.textContent = `Characters remaining: ${remaining}`;
-  }
-  };
-
-  if (notes && desc) {
-  updateCount();
-  notes.addEventListener("input", updateCount);
-  }
-
-  // Password check
-  const form = document.querySelector("form");
-  const p1 = document.getElementById("password1");
-  const p2 = document.getElementById("password2");
-
-  if (form && p1 && p2) {
-    form.addEventListener("submit", (e) => {
-      if (p1.value !== p2.value) {
-        e.preventDefault();
-        alert("Passwords do not match.");
-        p2.focus();
-      }
-    });
-  }
-  // Optional mental health page open
-  const p1 = document.getElementById("password1");
-  const p2 = document.getElementById("password2");
-
-  form.addEventListener("submit", (e) => {
-  // 1) Password check
-  if (p1 && p2 && p1.value !== p2.value) {
-    e.preventDefault();
-    alert("Passwords do not match.");
-    p2.focus();
-    return;
-  }
-
-  // If depression is high, open the third page in a NEW tab
-  const depression = document.getElementById("depression");
-  if (depression && Number(depression.value) >= 8) {
-    window.open("MentalHealth.html", "_blank");
-    }
-
-    // Central Time date + live clock (America/Chicago)
-    const todaySpan = document.getElementById("today");
-    const clockSpan = document.getElementById("clock");
-
-    // Formats using Central Time no matter what timezone the computer is in
+  if (todaySpan || clockSpan) {
     const ctDateFormatter = new Intl.DateTimeFormat("en-US", {
-  timeZone: "America/Chicago",
-  year: "numeric",
-  month: "2-digit",
-  day: "2-digit",
+      timeZone: "America/Chicago",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
     });
 
-   const ctTimeFormatter = new Intl.DateTimeFormat("en-US", {
-    timeZone: "America/Chicago",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
+    const ctTimeFormatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/Chicago",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
     });
 
     const updateCentralTime = () => {
-    const now = new Date();
+      const now = new Date();
+      if (todaySpan) todaySpan.textContent = ctDateFormatter.format(now);
+      if (clockSpan) clockSpan.textContent = ctTimeFormatter.format(now);
+    };
 
-    if (todaySpan) {
-    todaySpan.textContent = ctDateFormatter.format(now);
+    updateCentralTime();
+    setInterval(updateCentralTime, 1000);
+  }
+
+  // 2 Sliders
+  const hookSlider = (sliderId, outputId, label) => {
+    const slider = byId(sliderId);
+    const output = byId(outputId);
+
+    const render = () => {
+      if (slider && output) output.textContent = `${label}: ${slider.value}/10`;
+    };
+
+    if (slider && output) {
+      render();
+      slider.addEventListener("input", render);
     }
 
-    if (clockSpan) {
-    clockSpan.textContent = ctTimeFormatter.format(now);
-    } 
+    // reset
+    return render;
   };
 
+  const renderPain = hookSlider("range", "range-slider", "Pain Level");
+  const renderDepression = hookSlider("depression", "depression-slider", "Depression Level");
+  const renderStress = hookSlider("stress", "stress-slider", "Stress Level");
+  const attachCharCounter = (textareaId, counterSpanId, maxChars) => {
+    const ta = byId(textareaId);
+    if (!ta) return null;
 
-  updateCentralTime();
-  setInterval(updateCentralTime, 1000);
-  });
+    let counter = byId(counterSpanId);
+    if (!counter) {
+      counter = document.createElement("span");
+      counter.id = counterSpanId;
+      counter.className = "char-counter";
+      ta.insertAdjacentElement("afterend", counter);
+
+      // add spacing
+      ta.insertAdjacentHTML("afterend", "<br /><br />");
+    }
+
+    const render = () => {
+      const remaining = maxChars - ta.value.length;
+      counter.textContent = `Characters remaining: ${remaining}`;
+    };
+
+    render();
+    ta.addEventListener("input", render);
+    return render;
+  };
+
+  
+  const renderNotes = attachCharCounter("notes", "description_text", 500);
+  const renderMHNotes = attachCharCounter("mhNotes", "mh_description_text", 500);
+
+  // Password check 
+  const form = document.querySelector("form");
+  const p1 = byId("password1");
+  const p2 = byId("password2");
+  const depressionSlider = byId("depression");
+
+  if (form) {
+    form.addEventListener("submit", (e) => {
+      if (p1 && p2 && p1.value !== p2.value) {
+        e.preventDefault();
+        alert("Passwords do not match.");
+        p2.focus();
+        return;
+      }
+
+      //goes to ThankYou.html.
+      if (depressionSlider && Number(depressionSlider.value) >= 8) {
+        window.open("MentalHealth.html", "_blank");
+      }
+    });
+
+    form.addEventListener("reset", () => {
+      setTimeout(() => {
+        if (typeof renderPain === "function") renderPain();
+        if (typeof renderDepression === "function") renderDepression();
+        if (typeof renderStress === "function") renderStress();
+        if (typeof renderNotes === "function") renderNotes();
+        if (typeof renderMHNotes === "function") renderMHNotes();
+      }, 0);
+    });
+  }
 });
