@@ -26,7 +26,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const updateRange = () => {
     if (range && rangeOut) rangeOut.textContent = `Pain Level: ${range.value}/10`;
   };
+  // Depression slider output (1–10)
+  const depression = document.getElementById("depression");
+  const depressionOut = document.getElementById("depression-slider");
 
+  const updateDepression = () => {
+    if (depression && depressionOut) {
+      depressionOut.textContent = `Depression Level: ${depression.value}/10`;
+    }
+  };
+
+  if (depression && depressionOut) {
+    updateDepression();
+    depression.addEventListener("input", updateDepression);
+  }
   if (range && rangeOut) {
     updateRange();
     range.addEventListener("input", updateRange);

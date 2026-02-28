@@ -241,7 +241,7 @@ select {
   box-sizing: border-box;
 }
 
-/* Keep checkbox/radio from becoming huge width */
+/* Keep checkbox/radio from huge width */
 input[type="checkbox"],
 input[type="radio"],
 input[type="range"] {
@@ -260,4 +260,19 @@ footer {
 #endFooter {
   text-align: right;
   margin: 10px 12px;
+}
+
+table td {
+  vertical-align: middle;
+}
+
+select {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: lighter;
+  padding: 6px 8px;
+}
+
+#depression-slider {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-weight: lighter;
 }
