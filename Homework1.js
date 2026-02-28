@@ -32,6 +32,20 @@ document.addEventListener("DOMContentLoaded", () => {
     range.addEventListener("input", updateRange);
   }
 
+  // Stress slider output (1–10)
+  const stress = document.getElementById("stress");
+  const stressOut = document.getElementById("stress-slider");
+
+  const updateStress = () => {
+  if (stress && stressOut) stressOut.textContent = `Stress Level: ${stress.value}/10`;
+  };
+
+  if (stress && stressOut) {
+  updateStress();
+  stress.addEventListener("input", updateStress);
+  }
+
+
   // character counter
   const notes = document.getElementById("notes");
   const desc = document.getElementById("description_text");

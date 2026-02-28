@@ -126,6 +126,7 @@ textarea,
 #today,
 p,
 #range-slider,
+#stress-slider,
 #description_text {
   font-family: var(--font-main);
   font-weight: lighter;
@@ -134,6 +135,7 @@ p,
 
 /* range */
 #range-slider,
+#stress-slider,
 #description_text {
   display: inline-block;
   background: var(--panel-strong);
@@ -218,13 +220,18 @@ main {
 }
 
 .form-table td {
-  vertical-align: top;
+  vertical-align: middle;
 }
 
 .td1 {
   width: 38%;
   padding-top: 10px;
 }
+select {
+  height: 42px;          
+  line-height: 42px;     /* text centered */
+}
+
 
 input,
 textarea,
