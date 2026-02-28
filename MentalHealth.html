@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--
+Name: Raymundo Licon Castaneda
+Date created: Feb 25, 2026
+Date Last Updated: Feb 27, 2026
+Purpose: Homework 1 Clinic Form
+
+/MentalHealth.html
+
+Purpose:
+- Opens in a new tab if Depression slider is 8–10.
+- Includes a new logo.
+- Refers user to a fictitious in-network psychologist.
+-->
+
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="clinic-theme.css" />
+    <title>Road Runner Clinic | Mental Health Check-In</title>
+  </head>
+
+  <body>
+    <!-- Header matches the other pages -->
+    <header>
+      <table width="100%">
+        <tr>
+          <td valign="top" align="left" width="20%">
+            <div class="image">
+              <!-- logo -->
+              <svg
+                width="74"
+                height="74"
+                viewBox="0 0 74 74"
+                aria-label="Road Runner Clinic Mental Health Logo"
+                role="img"
+              >
+                <defs>
+                  <linearGradient id="mhBlue" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="rgba(0,86,155,0.95)" />
+                    <stop offset="1" stop-color="rgba(0,86,155,0.45)" />
+                  </linearGradient>
+                </defs>
+
+                <!-- outer ring -->
+                <circle
+                  cx="37"
+                  cy="37"
+                  r="34"
+                  fill="rgba(255,255,255,0.85)"
+                  stroke="rgba(0,86,155,0.35)"
+                  stroke-width="3"
+                />
+
+                <!-- heartbeat wave -->
+                <path
+                  d="M14 39 L24 39 L28 30 L34 48 L40 33 L44 39 L60 39"
+                  fill="none"
+                  stroke="url(#mhBlue)"
+                  stroke-width="4.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <path
+                  d="M24 25 C30 18, 44 18, 50 25"
+                  fill="none"
+                  stroke="rgba(0,86,155,0.40)"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M26 28 C31 23, 43 23, 48 28"
+                  fill="none"
+                  stroke="rgba(0,86,155,0.30)"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+
+                <text
+                  x="37"
+                  y="64"
+                  text-anchor="middle"
+                  font-size="10"
+                  fill="rgba(0,0,0,0.55)"
+                >
+                  RR Mind
+                </text>
+              </svg>
+            </div>
+          </td>
+
+          <td>
+            <h2>Road Runner Health Clinic</h2>
+          </td>
+
+          <td valign="bottom" align="right" width="20%">
+            Today's Date: <span id="today"></span>
+          </td>
+        </tr>
+      </table>
+    </header>
+
+    <br /><br />
+    <hr />
+    <br /><br /><br />
+
+    <main>
+      <div class="thankyou-card">
+        <h1 class="thankyou-title">Mental Health Check-In</h1>
+
+        <br /><br />
+
+        <!-- Safety / disclaimer -->
+        <p class="thankyou-text">
+          This is a <b>fictional</b> educational page for a class assignment.
+          <br /><br />
+          If you are in immediate danger or thinking about harming yourself, call
+          <b>988</b> (U.S.) or your local emergency number.
+        </p>
+
+        <br /><br /><br />
+
+        <!-- This form can send to ThankYou.html -->
+        <form action="ThankYou.html">
+          <!-- Basic screening questions -->
+
+          <p class="thankyou-text"><b>In the last 2 weeks…</b></p>
+          <br />
+
+          <!-- Q1 -->
+          <label for="q1">1) Little interest or pleasure in doing things:</label>
+          <br /><br />
+          <select id="q1" name="q1" required>
+            <option value="" selected disabled>Select one…</option>
+            <option value="0">Not at all</option>
+            <option value="1">Several days</option>
+            <option value="2">More than half the days</option>
+            <option value="3">Nearly every day</option>
+          </select>
+
+          <br /><br /><br />
+
+          <!-- Q2 -->
+          <label for="q2">2) Feeling down, depressed, or hopeless:</label>
+          <br /><br />
+          <select id="q2" name="q2" required>
+            <option value="" selected disabled>Select one…</option>
+            <option value="0">Not at all</option>
+            <option value="1">Several days</option>
+            <option value="2">More than half the days</option>
+            <option value="3">Nearly every day</option>
+          </select>
+
+          <br /><br /><br />
+
+          <!-- Q3 -->
+          <label for="q3">3) Trouble sleeping (or sleeping too much):</label>
+          <br /><br />
+          <select id="q3" name="q3" required>
+            <option value="" selected disabled>Select one…</option>
+            <option value="0">Not at all</option>
+            <option value="1">Several days</option>
+            <option value="2">More than half the days</option>
+            <option value="3">Nearly every day</option>
+          </select>
+
+          <br /><br /><br />
+
+          <!-- Q4 -->
+          <label for="q4">4) Low energy or fatigue:</label>
+          <br /><br />
+          <select id="q4" name="q4" required>
+            <option value="" selected disabled>Select one…</option>
+            <option value="0">Not at all</option>
+            <option value="1">Several days</option>
+            <option value="2">More than half the days</option>
+            <option value="3">Nearly every day</option>
+          </select>
+
+          <br /><br /><br />
+
+          <!-- Q5 -->
+          <label for="q5">5) How supported do you feel right now?</label>
+          <br /><br />
+          <select id="q5" name="q5" required>
+            <option value="" selected disabled>Select one…</option>
+            <option value="High">High support</option>
+            <option value="Medium">Some support</option>
+            <option value="Low">Low support</option>
+          </select>
+
+          <br /><br /><br />
+
+          <!-- Safety question -->
+          <label>6) Are you having thoughts of self-harm or harming others?</label>
+          <br /><br />
+          <input type="radio" id="riskNo" name="risk" value="No" required />
+          <label for="riskNo">No</label>
+          <br /><br />
+          <input type="radio" id="riskYes" name="risk" value="Yes" />
+          <label for="riskYes">Yes</label>
+
+          <br /><br /><br />
+
+          <!-- Notes -->
+          <label for="mhNotes">7) Anything you'd like the care team to know?</label>
+          <br /><br />
+          <textarea
+            id="mhNotes"
+            name="mhNotes"
+            rows="5"
+            cols="35"
+            maxlength="500"
+            placeholder="Ex: I’ve felt overwhelmed the last few days..."
+          ></textarea>
+
+          <br /><br /><br />
+
+          <!-- Fictitious referral -->
+          <p class="thankyou-text">
+            <b>Fictitious In-Network Referral:</b>
+            <br /><br />
+            If you’d like additional support, we can refer you to:
+            <br /><br />
+            <b>Dr. Morgan Rivers, PsyD</b> (In-Network Psychologist)
+            <br />
+            Road Runner Behavioral Health
+            <br />
+            100 Wellness Way, Suite 210
+            <br />
+            (555) 010-2026
+          </p>
+
+          <br /><br /><br />
+
+          <input type="submit" id="submit" value="Submit Check-In" />
+          <br /><br /><br />
+          <input type="reset" id="reset" value="Clear" />
+
+          <br /><br /><br />
+        </form>
+      </div>
+
+      <br /><br /><br />
+    </main>
+
+    <footer>
+      <p id="endFooter">&#169; 2026 Road Runner Health Clinic</p>
+    </footer>
+
+    <!-- today's date -->
+    <script src="Homework1.js" defer></script>
+  </body>
+</html>
