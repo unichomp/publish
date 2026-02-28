@@ -4,7 +4,7 @@ Date created: Feb 25, 2026
 Date Last Updated: Feb 27, 2026
 Purpose: Homework 1 JS
 
-This file is shared across ALL pages (Homework1.html, ThankYou.html, MentalHealth.html)
+This file is shared across ALL pages (patient-form.html, ThankYou.html, MentalHealth.html)
 adds functionalities to pages
 */
 
