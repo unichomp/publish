@@ -294,3 +294,26 @@ select {
 #clock {
   letter-spacing: 0.5px;
 }
+
+.footer-link {
+  font-family: var(--font-main);
+  font-weight: lighter;
+  color: rgba(0, 86, 155, 0.95);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+/* Footer clickable link styling */
+.footer-link {
+  font-family: var(--font-main);
+  font-weight: lighter;
+  color: rgba(0, 86, 155, 0.95);
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}

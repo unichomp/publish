@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--
+<!DOCTYPE html>
+<!--
+Name: Raymundo Licon Castaneda
+Date created: Feb 25, 2026
+Date Last Updated: Feb 27, 2026
+Purpose: clickable footer contact us page
+-->
+
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="clinic-theme.css" />
+    <title>Road Runner Clinic | Contact Us</title>
+  </head>
+
+  <body>
+
+    <!-- Header -->
+    <header>
+      <table width="100%">
+        <tr>
+          <td valign="top" align="left" width="20%">
+            <div class="image">
+              <img
+                src="RoadRNN.png"
+                alt="Road Runner Clinic Logo"
+                width="70"
+                id="logo"
+              />
+            </div>
+          </td>
+
+          <td>
+            <h2>Road Runner Health Clinic</h2>
+          </td>
+
+          <td valign="bottom" align="right" width="20%">
+            Today's Date: <span id="today"></span><br />
+            Central Time: <span id="clock"></span>
+          </td>
+        </tr>
+      </table>
+    </header>
+
+    <br /><hr /><br />
+
+    <main>
+      <div class="thankyou-card">
+
+        <h1 class="thankyou-title">Contact Us</h1>
+
+        <br /><br />
+
+        <p class="thankyou-text">
+          We are here to help. If you have questions about appointments,
+          insurance, or medical services, please contact us below.
+        </p>
+
+        <br /><br />
+
+        <!-- Clinic Info -->
+        <p class="thankyou-text">
+          <b>Road Runner Health Clinic</b><br />
+          123 Wellness Way<br />
+          Houston, TX 77001<br />
+          Phone: (555) 123-4567<br />
+          Email: support@roadrunnerclinic.com
+        </p>
+
+        <br /><br /><br />
+
+        <!-- Contact Form -->
+        <form action="ThankYou.html">
+
+          <label for="contactName">Your Name:</label><br /><br />
+          <input type="text" id="contactName" name="contactName" maxlength="50" required />
+          <br /><br /><br />
+
+          <label for="contactEmail">Your Email:</label><br /><br />
+          <input type="email" id="contactEmail" name="contactEmail" required />
+          <br /><br /><br />
+
+          <label for="contactMessage">Message:</label><br /><br />
+          <textarea
+            id="contactMessage"
+            name="contactMessage"
+            rows="5"
+            cols="35"
+            maxlength="500"
+            placeholder="Type your message here..."
+            required
+          ></textarea>
+
+          <br /><br /><br />
+
+          <input type="submit" value="Send Message" />
+          <br /><br />
+          <input type="reset" value="Clear" />
+
+          <br /><br /><br />
+
+        </form>
+
+        <a class="footer-link" href="Homework1.html">Back to Registration</a>
+
+      </div>
+    </main>
+
+    <br /><br />
+
+    <footer>
+      <p id="endFooter">
+        &#169; 2026 Road Runner Health Clinic |
+        <a class="footer-link" href="Homework1.html">Registration</a>
+      </p>
+    </footer>
+
+    <script src="Homework.js" defer></script>
+
+  </body>
+</html>
