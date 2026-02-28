@@ -127,6 +127,7 @@ textarea,
 p,
 #range-slider,
 #stress-slider,
+#depression-slider,
 #description_text {
   font-family: var(--font-main);
   font-weight: lighter;
@@ -136,6 +137,7 @@ p,
 /* range */
 #range-slider,
 #stress-slider,
+#depression-slider,
 #description_text {
   display: inline-block;
   background: var(--panel-strong);
