@@ -157,7 +157,15 @@ NOTE:
             <tr>
               <td class="td1"><label for="dob">Date of Birth</label></td>
               <td>
-                <input type="date" id="dob" name="dob" required />
+                <input
+                  type="text"
+                  id="dob"
+                  name="dob"
+                  required
+                  pattern="(0[1-9]|1[0-2])\/(0[1-9]|[12][0-9]|3[01])\/(19|20)\d\d"
+                  title="Format: MM/DD/YYYY"
+                  placeholder="MM/DD/YYYY"
+                />
                 <br /><br /><br />
               </td>
             </tr>
@@ -197,7 +205,7 @@ NOTE:
                   type="text"
                   name="address1"
                   id="address1"
-                  maxlength="50"
+                  maxlength="30"
                   required
                   title="Please Enter Your Address"
                   placeholder="Ex: 123 Moneypenny Ln"
@@ -228,7 +236,7 @@ NOTE:
                   type="text"
                   name="city"
                   id="city"
-                  maxlength="50"
+                  maxlength="30"
                   required
                   title="Please Enter Your City"
                   placeholder="Ex: Houston"
