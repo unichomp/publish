@@ -1,8 +1,10 @@
 /*
 Name: Raymundo Licon Castaneda
+Program Name: Homework1.js
 Date created: Feb 25, 2026
 Date Last Updated: Feb 27, 2026
-Purpose: Homework 1 JS
+version 1.3
+Purpose: Homework 1 JS Code
 
 This file is shared across ALL pages (patient-form.html, ThankYou.html, MentalHealth.html)
 adds functionalities to pages
