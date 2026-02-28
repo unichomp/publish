@@ -12,13 +12,6 @@ Notes
 */
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Today's date
-  const todaySpan = document.getElementById("today");
-  if (todaySpan) {
-    const now = new Date();
-    todaySpan.textContent = now.toLocaleDateString();
-  }
-
   // Pain slider (1–10)
   const range = document.getElementById("range");
   const rangeOut = document.getElementById("range-slider");
@@ -117,11 +110,45 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // 2) If depression is high, open the third page in a NEW tab
-  // IMPORTANT: do NOT preventDefault — let the form go to ThankYou.html normally
+  // If depression is high, open the third page in a NEW tab
   const depression = document.getElementById("depression");
   if (depression && Number(depression.value) >= 8) {
     window.open("MentalHealth.html", "_blank");
-  }
-});
+    }
+
+    // Central Time date + live clock (America/Chicago)
+    const todaySpan = document.getElementById("today");
+    const clockSpan = document.getElementById("clock");
+
+    // Formats using Central Time no matter what timezone the computer is in
+    const ctDateFormatter = new Intl.DateTimeFormat("en-US", {
+  timeZone: "America/Chicago",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+    });
+
+   const ctTimeFormatter = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/Chicago",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    });
+
+    const updateCentralTime = () => {
+    const now = new Date();
+
+    if (todaySpan) {
+    todaySpan.textContent = ctDateFormatter.format(now);
+    }
+
+    if (clockSpan) {
+    clockSpan.textContent = ctTimeFormatter.format(now);
+    } 
+  };
+
+
+  updateCentralTime();
+  setInterval(updateCentralTime, 1000);
+  });
 });
